@@ -131,6 +131,14 @@ router.get("/packages", (req, res) => {
   });
 });
 
+app.use(
+  cors({
+    origin: ["https://caiocares.netlify.app"],
+    methods: ["GET", "POST", "DELETE"],
+    credentials: true,
+    origin: true,
+  })
+)
 app.use(`/.netlify/functions/api`, router);
 
 module.exports = app;
